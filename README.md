@@ -4,7 +4,7 @@ Meta Antics
 Meta Antics is a Python program for experimenting with music metadata.
 At the moment it is very much still a work in progress.
 
-At the moment it is only capable of logging in to your Google Play music
+So far it is only capable of logging in to your Google Play music
 library and creating a music meta-database from this, however in the
 future it would be nice to support libraries and playlists from all
 other major music sources such as iTunes, last.fm, spotify, pandora,
