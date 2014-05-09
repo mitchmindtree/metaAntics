@@ -28,13 +28,14 @@ fdg = FDG()
 def setup():
     '''Called once on startup by pyprocessing's setup.'''
     size(WIDTH, HEIGHT)
+    frameRate(60)
     t = Thread(target=authGM())
     t.start()
 
 
 def draw():
     '''Override of pyprocessing's draw. Called 'framerate' times a second'''
-    background(120, 100, 80)
+    background(12, 60, 50)
     ellipse(mouse.x, mouse.y, 10, 10)
     if fdg.artistNodes:
         fdg.drawNodes()
@@ -57,6 +58,7 @@ def keyPressed():
         artists = artistMeta.loadData()
         pprint(artists)
         fdg.setArtists(artists)
+        fdg.setRelatedArtists()
  
 
 #def mouseClicked(): 
