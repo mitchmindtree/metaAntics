@@ -26,7 +26,6 @@ def gmMetaFP(which):
 
 def authGM(): 
     '''Authorises the instance of Google Music mobile client'''
-    count = 0
     while True:
         user = raw_input("Enter your Google Music e-mail: ")
         pw = getpass() 

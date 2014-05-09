@@ -16,25 +16,28 @@ from pyprocessing import *
 from threading import Thread
 from GMMetaData import ArtistMeta, StationMeta, authGM
 from forceDirectedGraph import *
+from Box2D import *
 
 
 artistMeta = ArtistMeta()
 stationMeta = StationMeta()
 artists = []
+fdg = FDG()
 
 
 def setup():
+    '''Called once on startup by pyprocessing's setup.'''
     size(WIDTH, HEIGHT)
     t = Thread(target=authGM())
     t.start()
 
 
 def draw():
-    background(250, 0, 0)
-    text("A test string!", 200, 200)
+    '''Override of pyprocessing's draw. Called 'framerate' times a second'''
+    background(120, 100, 80)
     ellipse(mouse.x, mouse.y, 10, 10)
-    #if artists:
-        #fdg.draw()
+    if fdg.artistNodes:
+        fdg.drawNodes()
 
 
 def keyPressed(): 
@@ -53,6 +56,7 @@ def keyPressed():
     elif key.char == '4':
         artists = artistMeta.loadData()
         pprint(artists)
+        fdg.setArtists(artists)
  
 
 #def mouseClicked(): 
